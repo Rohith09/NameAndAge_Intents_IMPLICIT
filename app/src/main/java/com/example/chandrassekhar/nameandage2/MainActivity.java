@@ -8,10 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText et1,et2;
+    EditText et1,et2,et3,et4;
     Button but;
 
-    String name;
+    String name,email,bio;
     int age;
 
     @Override
@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void send() {
         et1=(EditText)findViewById(R.id.edit1);
         et2=(EditText)findViewById(R.id.edit2);
+        et3=(EditText)findViewById(R.id.edit3);
+        et4=(EditText)findViewById(R.id.edit4);
         but=(Button)findViewById(R.id.button);
         but.setOnClickListener(this);
     }
@@ -32,9 +34,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         name=et1.getText().toString();
         age= Integer.parseInt(et2.getText().toString());
+        email=et3.getText().toString();
+        bio=et4.getText().toString();
         Intent i=new Intent(this,second_activity.class);
         i.putExtra("N1",name);
         i.putExtra("AG",age);
+        i.putExtra("EM",email);
+        i.putExtra("BIO",bio);
         startActivity(i);
         finish();
     }
